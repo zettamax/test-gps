@@ -10,7 +10,11 @@ var map, marker;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
-        center: {lat: 47.095670, lng: 37.550172}
+        center: {lat: 47.095670, lng: 37.550172},
+        disableDefaultUI: true,
+        draggable: false,
+        keyboardShortcuts: false,
+        disableDoubleClickZoom: true,
     });
 }
 
