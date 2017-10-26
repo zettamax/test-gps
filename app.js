@@ -5,6 +5,14 @@ var geoOptions = {
     enableHighAccuracy: true
 };
 var j = JSON.stringify;
+var map, marker;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: {lat: 47.095670, lng: 37.550172}
+    });
+}
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -15,29 +23,39 @@ function getLocation() {
 }
 function showPosition(position, color) {
 
-    var coords = j({
+    var coords = {
         lat: position.coords.latitude,
-        lon: position.coords.longitude
-    });
-    var dumpCoords = pos.dataset.coords;
+        lng: position.coords.longitude
+    };
 
-    if (pos.dataset.coords === coords) {
+    if (pos.dataset.coords === j(coords)) {
         return;
     }
-    pos.dataset.coords = coords;
+    pos.dataset.coords = j(coords);
+
+    if (marker) {
+        var latLng = new google.maps.LatLng(coords.lat, coords.lng);
+        marker.setPosition(latLng);
+        map.panTo(latLng);
+    } else {
+        marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+            animation: google.maps.Animation.BOUNCE
+        });
+    }
 
     var lastLoc = pos.querySelector('.loc:first-child');
     if (lastLoc) {
         var firstLog = log.querySelector('.loc:first-child');
-        log.insertBefore(lastLoc, firstLog);
-
-        document.querySelector('#pre').innerText = dumpCoords + '\n' + pos.dataset.coords;
+        // log.insertBefore(lastLoc, firstLog);
+        pos.removeChild(lastLoc);
     }
 
     pos.innerHTML =
         "<div class='loc'>" +
-        "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude + '</div>';
+        "Latitude: " + coords.lat +
+        "<br>Longitude: " + coords.lng + '</div>';
 
 }
 function errorPosition(e) {
