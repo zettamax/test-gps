@@ -2,8 +2,10 @@
   "author": "Max Nazarov",
 
   "name": "GPS test tool",
+  "short_name": "GPS test tool",
   "description": "Look the world around you",
   "version": "0.1",
+  "start_url": "",
   "homepage_url": "https://zettamax.github.io/test-gps/",
 
   "background": {
