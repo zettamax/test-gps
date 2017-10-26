@@ -31,6 +31,9 @@
   "icons": [{
       "src": "icon.png",
       "sizes": "128x128"
+    },{
+      "src": "icon.png",
+      "sizes": "144x144"
     }],
   "display": "fullscreen",
 
