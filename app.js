@@ -7,9 +7,7 @@ var j = JSON.stringify;
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(function (p) {
-            showPosition(p, '0a0');
-        }, errorPosition, geoOptions);
+        navigator.geolocation.watchPosition(showPosition, errorPosition, geoOptions);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -32,7 +30,7 @@ function showPosition(position, color) {
         "<br>Longitude: " + position.coords.longitude + '</div>';
 
     var loc = document.querySelector('.loc:not(:first-child)');
-    x.removeChild(loc);
+    loc && x.removeChild(loc);
 }
 function errorPosition(e) {
     console.log(e);
