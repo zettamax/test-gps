@@ -45,7 +45,7 @@ function showPosition(position, color) {
         return;
     }
 
-    var notification = new Notification("Location changed");
+    // var notification = new Notification("Location changed");
 
     pos.dataset.coords = j(coords);
     if (marker) {
