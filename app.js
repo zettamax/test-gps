@@ -66,3 +66,7 @@ function showPosition(position, color) {
 function errorPosition(e) {
     console.log(e);
 }
+
+navigator.serviceWorker.register('sw.js').then(function (x) {
+    console.log('done', x);
+});
