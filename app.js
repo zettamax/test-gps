@@ -7,6 +7,14 @@ var geoOptions = {
 var j = JSON.stringify;
 var map, marker;
 
+Notification.requestPermission(function (permission) {
+    // If the user accepts, let's create a notification
+    // if (permission === "granted") {
+    //     var notification = new Notification("Hi there!");
+    // }
+});
+
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
@@ -36,6 +44,8 @@ function showPosition(position, color) {
     if (pos.dataset.coords === j(coords)) {
         return;
     }
+
+    var notification = new Notification("Location changed");
 
     pos.dataset.coords = j(coords);
     if (marker) {
