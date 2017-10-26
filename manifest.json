@@ -32,6 +32,7 @@
     "48": "icon.png",
     "96": "icon.png"
   },
+  "display": "fullscreen",
 
   "permissions": [
     "webNavigation",
