@@ -2,6 +2,20 @@
 <html lang="en">
   <head>
     <title>Test GPS</title>
+
+    <style>
+      @keyframes example {
+        from {background-color: rgba(157, 255, 65, 0.68);}
+      }
+      .loc {
+        padding: 10px;
+      }
+      .loc:only-child {
+        animation-name: example;
+        animation-duration: 1.2s;
+        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    </style>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
