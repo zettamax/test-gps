@@ -28,10 +28,10 @@
 
   "default_locale": "en",
 
-  "icons": {
-    "48": "icon.png",
-    "96": "icon.png"
-  },
+  "icons": [{
+      "src": "icon.png",
+      "sizes": "128x128"
+    }],
   "display": "fullscreen",
 
   "permissions": [
