@@ -1,0 +1,45 @@
+{
+  "author": "Max Nazarov",
+
+  "name": "GPS test tool",
+  "description": "Look the world around you",
+  "version": "0.1",
+  "homepage_url": "https://zettamax.github.io/test-gps/",
+
+  "background": {
+    "scripts": ["bg.js"]
+  },
+
+  "protocol_handlers": [
+    {
+      "protocol": "ext+geo",
+      "name": "Geo protocol",
+      "uriTemplate": "https://zettamax.github.io/test-gps/#!/%s"
+    }
+  ],
+
+  "content_scripts": [
+    {
+      "exclude_matches": ["*://developer.mozilla.org/*"],
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["borderify.js"]
+    }
+  ],
+
+  "default_locale": "en",
+
+  "icons": {
+    "48": "icon.png",
+    "96": "icon.png"
+  },
+
+  "permissions": [
+    "webNavigation",
+    "background",
+    "geolocation"
+  ],
+
+  "manifest_version": 2,
+
+  "web_accessible_resources": ["images/my-image.png"]
+}
