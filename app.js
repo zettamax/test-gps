@@ -1,4 +1,4 @@
-var x = document.getElementById("demo");
+var x = document.querySelector("#demo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
