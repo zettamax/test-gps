@@ -10,10 +10,13 @@
       .loc {
         padding: 10px;
       }
-      .loc:only-child {
+      #pos .loc:only-child {
         animation-name: example;
         animation-duration: 1.2s;
         animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      #pos {
+        clear: both;
       }
     </style>
     
@@ -22,9 +25,11 @@
   </head>
 
   <body>
+    <pre id="pre" style="float: right;"></pre>
     <button id="check" onclick="getLocation()">PUSH ME</button>
-    <div id="demo"></div>
-    
+    <div id="pos"></div>
+    <div id="log"></div>
+
     <script src="app.js"></script>
   </body>
 
