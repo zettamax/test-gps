@@ -31,22 +31,23 @@ function showPosition(position, color) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
     };
+    var latLng = new google.maps.LatLng(coords.lat, coords.lng);
 
     if (pos.dataset.coords === j(coords)) {
         return;
     }
-    pos.dataset.coords = j(coords);
 
+    pos.dataset.coords = j(coords);
     if (marker) {
-        var latLng = new google.maps.LatLng(coords.lat, coords.lng);
         marker.setPosition(latLng);
         map.panTo(latLng);
     } else {
         marker = new google.maps.Marker({
-            position: coords,
+            position: latLng,
             map: map,
             animation: google.maps.Animation.BOUNCE
         });
+        map.panTo(latLng);
     }
 
     var lastLoc = pos.querySelector('.loc:first-child');
