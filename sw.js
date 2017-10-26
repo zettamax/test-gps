@@ -1,8 +1,4 @@
 self.addEventListener('fetch', function (event) {
-    if (event.request.url.startsWith(self.location.origin)) {
-        event.respondWith(fetch(event.request));
-    }
-
     var title = 'Yay a message.';
     var body = event.request.url;
     var icon = './icon128.png';
@@ -15,6 +11,10 @@ self.addEventListener('fetch', function (event) {
             tag: tag
         })
     );
+
+    if (event.request.url.startsWith(self.location.origin)) {
+        event.respondWith(fetch(event.request));
+    }
 });
 
 self.addEventListener('push', function(event) {
