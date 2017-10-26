@@ -29,10 +29,10 @@
   "default_locale": "en",
 
   "icons": [{
-      "src": "icon.png",
+      "src": "icon128.png",
       "sizes": "128x128"
     },{
-      "src": "icon.png",
+      "src": "icon144.png",
       "sizes": "144x144"
     }],
   "display": "fullscreen",
