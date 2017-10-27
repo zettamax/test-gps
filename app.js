@@ -2,10 +2,10 @@ var pos = document.querySelector("#pos");
 var log = document.querySelector("#log");
 var geoOptions = {
     maximumAge: 10000,
-    enableHighAccuracy: true
+    enableHighAccuracy: false
 };
 var j = JSON.stringify;
-var map, marker;
+var map, marker, mapCenter = {lat: 47.095670, lng: 37.550172};
 
 Notification.requestPermission(function (permission) {
     // If the user accepts, let's create a notification
@@ -18,11 +18,15 @@ Notification.requestPermission(function (permission) {
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: {lat: 47.095670, lng: 37.550172},
+        center: mapCenter,
         disableDefaultUI: true,
         draggable: false,
         keyboardShortcuts: false,
         disableDoubleClickZoom: true,
+    });
+    map.addListener('bounds_changed', function () {
+        var position = marker ? marker.getPosition() : mapCenter;
+        map.panTo(position);
     });
 }
 
