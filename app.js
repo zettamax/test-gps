@@ -1,7 +1,7 @@
 var pos = document.querySelector("#pos");
 var log = document.querySelector("#log");
 var geoOptions = {
-    maximumAge: 10000,
+    maximumAge: 0,
     enableHighAccuracy: false
 };
 var j = JSON.stringify;
